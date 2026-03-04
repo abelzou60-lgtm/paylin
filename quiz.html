@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Quiz - Find Your Perfect Brew - Paylincoffee</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="mobile-nav.js" defer></script>
     <style>
         .quiz-hero {
             margin-top: 90px;
@@ -282,6 +283,207 @@
         .hidden {
             display: none;
         }
+
+        /* Header Right Container */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Nav Overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            transition: left 0.3s ease;
+            display: none;
+        }
+
+        .mobile-nav-overlay.active {
+            left: 0;
+        }
+
+        .mobile-nav-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 280px;
+            max-width: 80%;
+            height: 100%;
+            background: #fff;
+            padding: 30px 20px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav-overlay.active .mobile-nav-content {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-nav-header h2 {
+            font-size: 24px;
+            color: #1a1a1a;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: #1a1a1a;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #c49a6c;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: #1a1a1a;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav-links a:hover {
+            background: #f5f0eb;
+            color: #c49a6c;
+            padding-left: 25px;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .header-right {
+                gap: 15px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav-overlay {
+                display: block;
+            }
+
+            .quiz-hero {
+                margin-top: 80px;
+                padding: 60px 20px;
+            }
+
+            .quiz-hero h1 {
+                font-size: 32px;
+            }
+
+            .quiz-hero p {
+                font-size: 16px;
+            }
+
+            .quiz-container {
+                padding: 40px 20px;
+            }
+
+            .quiz-question {
+                padding: 30px 20px;
+            }
+
+            .question-text {
+                font-size: 22px;
+            }
+
+            .answer-option {
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .quiz-navigation {
+                flex-direction: column;
+            }
+
+            .quiz-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .quiz-info {
+                padding: 40px 20px;
+            }
+
+            .recommended-products {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -303,12 +505,35 @@
                 <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-            <div class="cart-icon">
-                <span>🛒</span>
-                <span class="cart-count">0</span>
+            <div class="header-right">
+                <div class="cart-icon">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <h2>Menu</h2>
+                <button class="close-btn" id="closeBtn">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Quiz Hero -->
     <section class="quiz-hero">
@@ -573,6 +798,7 @@
     </footer>
 
     <script>
+        // Quiz Logic
         let currentQuestion = 1;
         const totalQuestions = 5;
         const answers = {};

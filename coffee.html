@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Coffee - Paylincoffee</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="mobile-nav.js" defer></script>
     <style>
         .filter-bar {
             background: #f9f9f9;
@@ -87,12 +88,35 @@
                 <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-            <div class="cart-icon">
-                <span>🛒</span>
-                <span class="cart-count">0</span>
+            <div class="header-right">
+                <div class="cart-icon">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <h2>Menu</h2>
+                <button class="close-btn" id="closeBtn">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Filter Bar -->
     <div class="filter-bar">
