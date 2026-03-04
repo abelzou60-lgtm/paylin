@@ -521,22 +521,21 @@ footer {
         font-size: 20px;
     }
 
+    /* Hide desktop nav links on mobile */
     .nav-links {
-        gap: 16px;
-    }
-
-    .nav-links a {
-        font-size: 12px;
+        display: none;
     }
 
     .header-right {
         gap: 15px;
     }
 
+    /* Show hamburger on mobile */
     .hamburger {
         display: flex;
     }
 
+    /* Show mobile nav overlay on mobile */
     .mobile-nav-overlay {
         display: block;
     }
@@ -626,7 +625,7 @@ footer {
     gap: 20px;
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - Hidden by default (desktop) */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -658,7 +657,7 @@ footer {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Mobile Nav Overlay */
+/* Mobile Nav Overlay - Hidden by default (desktop) */
 .mobile-nav-overlay {
     position: fixed;
     top: 0;
