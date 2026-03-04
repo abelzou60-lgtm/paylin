@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Coffee - Paylincoffee</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .filter-bar {
+            background: #f9f9f9;
+            padding: 30px 40px;
+            margin-top: 90px;
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        .products-header {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .products-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .products-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        Free Shipping on All Subscriptions | Use Code: FRESH20 for 20% Off First Order
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://cf.aibomart.com/paylin/paylin-logo.PNG" alt="Paylincoffee Logo">
+                <span class="logo-text">coffee</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="cart-icon">
+                <span>🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-container">
+            <span class="filter-title">Filter By:</span>
+            <div class="filter-options">
+                <button class="filter-btn active">All Coffee</button>
+                <button class="filter-btn">Blends</button>
+                <button class="filter-btn">Single Origin</button>
+                <button class="filter-btn">Decaf</button>
+                <button class="filter-btn">Limited Edition</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Header -->
+    <div class="products-header">
+        <h1>Our Coffee</h1>
+        <p>Explore our full collection of expertly roasted coffees from around the world</p>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products section">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Peru TIMBUYACU MARAGOGYPE" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span class="product-badge">Best Seller</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Peru TIMBUYACU MARAGOGYPE</h3>
+                    <p class="product-flavor">Toffee • Apple • Tangerine</p>
+                    <p class="product-description">Managed by husband and wife team Alfonso and Karim Tejada, Timbuyacu is ideal for growing an array of coffee varieties, including Maragogype. This rare, low-yield coffee variety produces an extra-large coffee cherry and a distinct profile.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$24.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Hair Bender" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Bender®</h3>
+                    <p class="product-flavor">Chocolate • Caramel • Citrus</p>
+                    <p class="product-description">Our most beloved blend, Hair Bender delivers a complex cup with notes of chocolate, caramel, and citrus. Perfect for espresso or drip coffee.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$22.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Holler Mountain" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Holler Mountain</h3>
+                    <p class="product-flavor">Brown Sugar • Orange • Nut</p>
+                    <p class="product-description">A smooth, balanced blend with notes of brown sugar, orange zest, and toasted nuts. Great for everyday drinking.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$20.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Ethiopia Yirgacheffe" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Ethiopia Yirgacheffe</h3>
+                    <p class="product-flavor">Floral • Bergamot • Lemon</p>
+                    <p class="product-description">A stunning single origin from the birthplace of coffee. Bright acidity with pronounced floral and citrus notes. Light body with a tea-like quality.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$26.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Colombia Huila" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Colombia Huila</h3>
+                    <p class="product-flavor">Red Cherry • Caramel • Walnut</p>
+                    <p class="product-description">From the southern highlands of Colombia, this coffee offers sweet fruit notes balanced with rich caramel and a smooth, nutty finish.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$23.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Guatemala Antigua" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Guatemala Antigua</h3>
+                    <p class="product-flavor">Cocoa • Spice • Smoke</p>
+                    <p class="product-description">Grown in the shadow of volcanoes, this coffee features rich cocoa notes with subtle spice and a hint of smokiness. Full-bodied and complex.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$24.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Sumatra Mandheling" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Sumatra Mandheling</h3>
+                    <p class="product-flavor">Earth • Herb • Dark Chocolate</p>
+                    <p class="product-description">A bold, earthy coffee with low acidity and full body. Notes of dark chocolate, cedar, and exotic spices make this a favorite for French press.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$25.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Decaf Colombia" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Decaf Colombia</h3>
+                    <p class="product-flavor">Molasses • Apricot • Almond</p>
+                    <p class="product-description">Swiss Water Process decaffeination preserves all the flavor of this excellent Colombian coffee. Rich and satisfying without the caffeine.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$24.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Kenya AA" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span class="product-badge">Limited</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Kenya AA</h3>
+                    <p class="product-flavor">Black Currant • Grapefruit • Wine</p>
+                    <p class="product-description">The pinnacle of African coffee. Bright, wine-like acidity with intense black currant and grapefruit notes. A truly exceptional cup.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$28.00</span>
+                        <button class="btn btn-secondary product-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="coffee.html">All Coffee</a></li>
+                    <li><a href="subscribe.html">Subscriptions</a></li>
+                    <li><a href="subscribe.html">Bundles</a></li>
+                    <li><a href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Learn</h3>
+                <ul>
+                    <li><a href="#">Brewing Guides</a></li>
+                    <li><a href="#">Coffee 101</a></li>
+                    <li><a href="about.html">Our Farmers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Cafés</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📌</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paylincoffee. All rights reserved. | <span class="footer-domain">paylin.top</span></p>
+        </div>
+    </footer>
+</body>
+</html>

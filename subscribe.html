@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe & Save - Paylincoffee</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .subscribe-hero {
+            margin-top: 90px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #fff;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .subscribe-hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .subscribe-hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #c49a6c;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .how-it-works {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .steps-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #c49a6c;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .step-text {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .subscription-plans {
+            padding: 100px 40px;
+            background: #f9f9f9;
+        }
+
+        .plans-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .plan-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .plan-card.featured {
+            border: 3px solid #c49a6c;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #c49a6c;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .plan-description {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c49a6c;
+            margin-bottom: 10px;
+        }
+
+        .plan-price span {
+            font-size: 18px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #4caf50;
+            font-size: 18px;
+        }
+
+        .bundles-section {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .bundle-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .bundle-card {
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d5 100%);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .bundle-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .bundle-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .bundle-description {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .bundle-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #c49a6c;
+            margin-bottom: 25px;
+        }
+
+        .bundle-price span {
+            font-size: 16px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .benefits-section {
+            padding: 80px 40px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .benefit-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #c49a6c;
+        }
+
+        .benefit-text {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        Free Shipping on All Subscriptions | Use Code: FRESH20 for 20% Off First Order
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://cf.aibomart.com/paylin/paylin-logo.PNG" alt="Paylincoffee Logo">
+                <span class="logo-text">coffee</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="cart-icon">
+                <span>🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Subscribe Hero -->
+    <section class="subscribe-hero">
+        <div class="discount-badge">Save 20% on All Subscriptions</div>
+        <h1>Never Run Out of Coffee</h1>
+        <p>Subscribe and save on every order. Fresh roasted coffee delivered to your door on your schedule. Plus, free shipping on all subscription orders.</p>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works section">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Getting your perfect coffee has never been easier</p>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Choose Your Coffee</h3>
+                <p class="step-text">Select from our full range of blends and single origins. Mix and match to create your perfect subscription.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Set Your Schedule</h3>
+                <p class="step-text">Choose how often you want delivery. Weekly, bi-weekly, or monthly - you're in complete control.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Fresh Delivery</h3>
+                <p class="step-text">We roast to order and ship immediately. Your coffee arrives fresh, every single time.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Manage Anytime</h3>
+                <p class="step-text">Skip, pause, or cancel anytime. No commitments, no hassle. Your subscription, your rules.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Plans -->
+    <section class="subscription-plans section">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-subtitle">Flexible subscriptions designed for every coffee lover</p>
+        <div class="plans-container">
+            <div class="plan-card">
+                <h3 class="plan-name">Starter</h3>
+                <p class="plan-description">Perfect for casual coffee drinkers</p>
+                <div class="plan-price">$18<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><span class="check-icon">✓</span> 1 bag of coffee per month</li>
+                    <li><span class="check-icon">✓</span> 20% discount on all orders</li>
+                    <li><span class="check-icon">✓</span> Free shipping</li>
+                    <li><span class="check-icon">✓</span> Flexible delivery schedule</li>
+                    <li><span class="check-icon">✓</span> Cancel anytime</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="plan-card featured">
+                <span class="plan-badge">Most Popular</span>
+                <h3 class="plan-name">Regular</h3>
+                <p class="plan-description">For the everyday coffee enthusiast</p>
+                <div class="plan-price">$34<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><span class="check-icon">✓</span> 2 bags of coffee per month</li>
+                    <li><span class="check-icon">✓</span> 20% discount on all orders</li>
+                    <li><span class="check-icon">✓</span> Free shipping</li>
+                    <li><span class="check-icon">✓</span> Flexible delivery schedule</li>
+                    <li><span class="check-icon">✓</span> Early access to new releases</li>
+                    <li><span class="check-icon">✓</span> Cancel anytime</li>
+                </ul>
+                <button class="btn btn-secondary">Get Started</button>
+            </div>
+
+            <div class="plan-card">
+                <h3 class="plan-name">Premium</h3>
+                <p class="plan-description">For serious coffee connoisseurs</p>
+                <div class="plan-price">$65<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><span class="check-icon">✓</span> 4 bags of coffee per month</li>
+                    <li><span class="check-icon">✓</span> 25% discount on all orders</li>
+                    <li><span class="check-icon">✓</span> Free priority shipping</li>
+                    <li><span class="check-icon">✓</span> Flexible delivery schedule</li>
+                    <li><span class="check-icon">✓</span> Exclusive limited editions</li>
+                    <li><span class="check-icon">✓</span> Free brewing guide</li>
+                    <li><span class="check-icon">✓</span> Cancel anytime</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundles Section -->
+    <section class="bundles-section section">
+        <h2 class="section-title">Bundle & Save</h2>
+        <p class="section-subtitle">Curated bundles for the best value</p>
+        <div class="bundle-grid">
+            <div class="bundle-card">
+                <div class="bundle-icon">☕☕</div>
+                <h3 class="bundle-name">Starter Bundle</h3>
+                <p class="bundle-description">Two iconic Paylin blends in one perfect package. Choose any two 12oz bags from our full collection.</p>
+                <div class="bundle-price">$40.00 <span>($44 value)</span></div>
+                <button class="btn">Choose Bundle</button>
+            </div>
+
+            <div class="bundle-card">
+                <div class="bundle-icon">☕☕☕☕</div>
+                <h3 class="bundle-name">Premium Bundle</h3>
+                <p class="bundle-description">Four bags of pure coffee bliss. Mix and match any four 12oz bags and save big on your favorite coffees.</p>
+                <div class="bundle-price">$76.00 <span>($88 value)</span></div>
+                <button class="btn btn-secondary">Choose Bundle</button>
+            </div>
+
+            <div class="bundle-card">
+                <div class="bundle-icon">☕🎁</div>
+                <h3 class="bundle-name">Gift Bundle</h3>
+                <p class="bundle-description">The perfect gift for coffee lovers. Beautifully packaged with tasting notes and brewing instructions.</p>
+                <div class="bundle-price">$50.00 <span>($60 value)</span></div>
+                <button class="btn">Choose Bundle</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <h2 class="section-title" style="color: #fff;">Why Subscribe?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <h3 class="benefit-title">Save Money</h3>
+                <p class="benefit-text">Get 20-25% off every order plus free shipping. The more you subscribe, the more you save.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📅</div>
+                <h3 class="benefit-title">Ultimate Flexibility</h3>
+                <p class="benefit-text">Skip deliveries, change your coffee selection, or adjust frequency. Complete control in your account.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🔥</div>
+                <h3 class="benefit-title">Always Fresh</h3>
+                <p class="benefit-text">We roast to order for subscribers. Your coffee is roasted the same day it ships.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🎁</div>
+                <h3 class="benefit-title">Exclusive Perks</h3>
+                <p class="benefit-text">Early access to limited releases, members-only discounts, and special subscriber rewards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="coffee.html">All Coffee</a></li>
+                    <li><a href="subscribe.html">Subscriptions</a></li>
+                    <li><a href="subscribe.html">Bundles</a></li>
+                    <li><a href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Learn</h3>
+                <ul>
+                    <li><a href="#">Brewing Guides</a></li>
+                    <li><a href="#">Coffee 101</a></li>
+                    <li><a href="about.html">Our Farmers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Cafés</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📌</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paylincoffee. All rights reserved. | <span class="footer-domain">paylin.top</span></p>
+        </div>
+    </footer>
+</body>
+</html>

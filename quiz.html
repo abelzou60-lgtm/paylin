@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Quiz - Find Your Perfect Brew - Paylincoffee</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .quiz-hero {
+            margin-top: 90px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #fff;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .quiz-hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .quiz-progress {
+            margin-bottom: 40px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #c49a6c;
+            width: 20%;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .quiz-question {
+            background: #fff;
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .question-number {
+            font-size: 14px;
+            color: #c49a6c;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: #1a1a1a;
+        }
+
+        .answer-options {
+            display: grid;
+            gap: 20px;
+        }
+
+        .answer-option {
+            padding: 25px 30px;
+            background: #f9f9f9;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .answer-option:hover {
+            border-color: #c49a6c;
+            background: #fdf8f3;
+            transform: translateX(5px);
+        }
+
+        .answer-option.selected {
+            border-color: #c49a6c;
+            background: #c49a6c;
+            color: #fff;
+        }
+
+        .option-icon {
+            font-size: 32px;
+        }
+
+        .option-text {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .quiz-btn {
+            padding: 16px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .quiz-btn-primary {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .quiz-btn-primary:hover {
+            background: #c49a6c;
+        }
+
+        .quiz-btn-secondary {
+            background: #eee;
+            color: #1a1a1a;
+        }
+
+        .quiz-btn-secondary:hover {
+            background: #ddd;
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Result Section */
+        .quiz-result {
+            background: #fff;
+            border-radius: 8px;
+            padding: 60px 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            display: none;
+        }
+
+        .result-icon {
+            font-size: 100px;
+            margin-bottom: 30px;
+        }
+
+        .result-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .result-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .recommended-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .result-product {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .result-product-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-product-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .result-product-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .result-product-flavor {
+            color: #c49a6c;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .result-product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        /* How It Works */
+        .quiz-info {
+            background: #f9f9f9;
+            padding: 80px 40px;
+        }
+
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .info-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-text {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        Free Shipping on All Subscriptions | Use Code: FRESH20 for 20% Off First Order
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://cf.aibomart.com/paylin/paylin-logo.PNG" alt="Paylincoffee Logo">
+                <span class="logo-text">coffee</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="cart-icon">
+                <span>🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Quiz Hero -->
+    <section class="quiz-hero">
+        <h1>Find Your Perfect Coffee</h1>
+        <p>Answer a few questions about your taste preferences and we'll recommend the perfect brew for you</p>
+    </section>
+
+    <!-- Quiz Info -->
+    <section class="quiz-info">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">❓</div>
+                <h3 class="info-title">5 Questions</h3>
+                <p class="info-text">Just 5 simple questions about your coffee preferences and taste profile</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">⏱️</div>
+                <h3 class="info-title">2 Minutes</h3>
+                <p class="info-text">Takes less than 2 minutes to complete. Quick, easy, and fun!</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🎯</div>
+                <h3 class="info-title">Personalized</h3>
+                <p class="info-text">Get coffee recommendations tailored specifically to your taste</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🎁</div>
+                <h3 class="info-title">Special Offer</h3>
+                <p class="info-text">Complete the quiz and get 15% off your first order of recommended coffee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <!-- Progress Bar -->
+        <div class="quiz-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Question 1 of 5</div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-question" id="question1">
+            <div class="question-number">Question 1</div>
+            <h2 class="question-text">How do you usually brew your coffee?</h2>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(1, 1)">
+                    <span class="option-icon">☕</span>
+                    <span class="option-text">Drip Coffee Maker</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(1, 2)">
+                    <span class="option-icon">🫖</span>
+                    <span class="option-text">French Press</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(1, 3)">
+                    <span class="option-icon">☕</span>
+                    <span class="option-text">Espresso Machine</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(1, 4)">
+                    <span class="option-icon">🧪</span>
+                    <span class="option-text">Pour Over / Chemex</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question hidden" id="question2">
+            <div class="question-number">Question 2</div>
+            <h2 class="question-text">What flavor profile do you prefer?</h2>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(2, 1)">
+                    <span class="option-icon">🍫</span>
+                    <span class="option-text">Rich & Chocolatey</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(2, 2)">
+                    <span class="option-icon">🍊</span>
+                    <span class="option-text">Bright & Fruity</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(2, 3)">
+                    <span class="option-icon">🥜</span>
+                    <span class="option-text">Nutty & Caramel</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(2, 4)">
+                    <span class="option-icon">🌿</span>
+                    <span class="option-text">Bold & Earthy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question hidden" id="question3">
+            <div class="question-number">Question 3</div>
+            <h2 class="question-text">How strong do you like your coffee?</h2>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(3, 1)">
+                    <span class="option-icon">💧</span>
+                    <span class="option-text">Light & Smooth</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(3, 2)">
+                    <span class="option-icon">☕</span>
+                    <span class="option-text">Medium & Balanced</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(3, 3)">
+                    <span class="option-icon">🔥</span>
+                    <span class="option-text">Bold & Strong</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(3, 4)">
+                    <span class="option-icon">⚡</span>
+                    <span class="option-text">Extra Strong & Intense</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question hidden" id="question4">
+            <div class="question-number">Question 4</div>
+            <h2 class="question-text">Do you prefer single origin or blends?</h2>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(4, 1)">
+                    <span class="option-icon">🌍</span>
+                    <span class="option-text">Single Origin - Unique regional flavors</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(4, 2)">
+                    <span class="option-icon">🔀</span>
+                    <span class="option-text">Blends - Consistent & balanced</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(4, 3)">
+                    <span class="option-icon">❓</span>
+                    <span class="option-text">Not sure - Tell me more!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question hidden" id="question5">
+            <div class="question-number">Question 5</div>
+            <h2 class="question-text">How often do you drink coffee?</h2>
+            <div class="answer-options">
+                <div class="answer-option" onclick="selectAnswer(5, 1)">
+                    <span class="option-icon">📅</span>
+                    <span class="option-text">Multiple times a day</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(5, 2)">
+                    <span class="option-icon">☀️</span>
+                    <span class="option-text">Once a day (morning ritual)</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(5, 3)">
+                    <span class="option-icon">📆</span>
+                    <span class="option-text">A few times a week</span>
+                </div>
+                <div class="answer-option" onclick="selectAnswer(5, 4)">
+                    <span class="option-icon">🎯</span>
+                    <span class="option-text">Occasionally</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="quiz-navigation" id="quizNavigation">
+            <button class="quiz-btn quiz-btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+            <button class="quiz-btn quiz-btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+        </div>
+
+        <!-- Result Section -->
+        <div class="quiz-result" id="quizResult">
+            <div class="result-icon">🎉</div>
+            <h2 class="result-title">Your Perfect Coffee Awaits!</h2>
+            <p class="result-description">Based on your answers, we've identified the perfect coffee profiles for your taste preferences. Here are our top recommendations:</p>
+            
+            <div class="recommended-products">
+                <div class="result-product">
+                    <div class="result-product-icon">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Hair Bender">
+                    </div>
+                    <h3 class="result-product-name">Hair Bender®</h3>
+                    <p class="result-product-flavor">Chocolate • Caramel • Citrus</p>
+                    <p class="result-product-price">$22.00</p>
+                    <a href="coffee.html" class="btn btn-secondary">Shop Now</a>
+                </div>
+                <div class="result-product">
+                    <div class="result-product-icon">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Colombia Huila">
+                    </div>
+                    <h3 class="result-product-name">Colombia Huila</h3>
+                    <p class="result-product-flavor">Red Cherry • Caramel • Walnut</p>
+                    <p class="result-product-price">$23.00</p>
+                    <a href="coffee.html" class="btn btn-secondary">Shop Now</a>
+                </div>
+                <div class="result-product">
+                    <div class="result-product-icon">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Holler Mountain">
+                    </div>
+                    <h3 class="result-product-name">Holler Mountain</h3>
+                    <p class="result-product-flavor">Brown Sugar • Orange • Nut</p>
+                    <p class="result-product-price">$20.00</p>
+                    <a href="coffee.html" class="btn btn-secondary">Shop Now</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <p style="font-size: 18px; color: #666; margin-bottom: 25px;">Want to try all three? Save 20% with a subscription!</p>
+                <a href="subscribe.html" class="btn">Start Subscription</a>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <button class="quiz-btn quiz-btn-secondary" onclick="restartQuiz()">Retake Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="coffee.html">All Coffee</a></li>
+                    <li><a href="subscribe.html">Subscriptions</a></li>
+                    <li><a href="subscribe.html">Bundles</a></li>
+                    <li><a href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Learn</h3>
+                <ul>
+                    <li><a href="#">Brewing Guides</a></li>
+                    <li><a href="#">Coffee 101</a></li>
+                    <li><a href="about.html">Our Farmers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Cafés</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📌</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paylincoffee. All rights reserved. | <span class="footer-domain">paylin.top</span></p>
+        </div>
+    </footer>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        const answers = {};
+
+        function selectAnswer(questionNum, answerNum) {
+            // Store answer
+            answers[questionNum] = answerNum;
+            
+            // Update UI
+            const questionEl = document.getElementById(`question${questionNum}`);
+            const options = questionEl.querySelectorAll('.answer-option');
+            options.forEach((option, index) => {
+                option.classList.remove('selected');
+                if (index + 1 === answerNum) {
+                    option.classList.add('selected');
+                }
+            });
+
+            // Enable next button
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                // Hide current question
+                document.getElementById(`question${currentQuestion}`).classList.add('hidden');
+                
+                // Move to next question
+                currentQuestion++;
+                document.getElementById(`question${currentQuestion}`).classList.remove('hidden');
+                
+                // Update progress
+                updateProgress();
+                
+                // Enable/disable buttons
+                document.getElementById('prevBtn').disabled = false;
+                document.getElementById('nextBtn').disabled = true;
+                
+                // If last question, change button text
+                if (currentQuestion === totalQuestions) {
+                    document.getElementById('nextBtn').textContent = 'See Results';
+                }
+            } else {
+                // Show results
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                // Hide current question
+                document.getElementById(`question${currentQuestion}`).classList.add('hidden');
+                
+                // Move to previous question
+                currentQuestion--;
+                document.getElementById(`question${currentQuestion}`).classList.remove('hidden');
+                
+                // Update progress
+                updateProgress();
+                
+                // Enable/disable buttons
+                document.getElementById('prevBtn').disabled = currentQuestion === 1;
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('nextBtn').textContent = 'Next';
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+        }
+
+        function showResults() {
+            // Hide all questions and navigation
+            for (let i = 1; i <= totalQuestions; i++) {
+                document.getElementById(`question${i}`).classList.add('hidden');
+            }
+            document.getElementById('quizNavigation').classList.add('hidden');
+            document.querySelector('.quiz-progress').classList.add('hidden');
+            
+            // Show results
+            document.getElementById('quizResult').style.display = 'block';
+        }
+
+        function restartQuiz() {
+            // Reset variables
+            currentQuestion = 1;
+            Object.keys(answers).forEach(key => delete answers[key]);
+            
+            // Reset UI
+            for (let i = 1; i <= totalQuestions; i++) {
+                document.getElementById(`question${i}`).classList.add('hidden');
+                const options = document.getElementById(`question${i}`).querySelectorAll('.answer-option');
+                options.forEach(option => option.classList.remove('selected'));
+            }
+            
+            // Show first question
+            document.getElementById('question1').classList.remove('hidden');
+            document.getElementById('quizNavigation').classList.remove('hidden');
+            document.querySelector('.quiz-progress').classList.remove('hidden');
+            document.getElementById('quizResult').style.display = 'none';
+            
+            // Reset buttons
+            document.getElementById('prevBtn').disabled = true;
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('nextBtn').textContent = 'Next';
+            
+            // Reset progress
+            updateProgress();
+        }
+    </script>
+</body>
+</html>

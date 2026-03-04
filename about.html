@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Paylincoffee</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-hero {
+            margin-top: 90px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d5 100%);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .story-section {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .story-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-image {
+            background: linear-gradient(135deg, #d4c5b5 0%, #c49a6c 100%);
+            height: 500px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: #fff;
+        }
+
+        .story-text h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        .story-text p {
+            font-size: 17px;
+            color: #4a4a4a;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .values-section {
+            padding: 100px 40px;
+            background: #f9f9f9;
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .value-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+        }
+
+        .value-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .value-text {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .farmers-section {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .farmers-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .farmers-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .farmers-text h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+        }
+
+        .farmers-text p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.9;
+        }
+
+        .farmers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .farmer-card {
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d5 100%);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .farmer-image {
+            height: 250px;
+            background: linear-gradient(135deg, #d4c5b5 0%, #c49a6c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #fff;
+        }
+
+        .farmer-info {
+            padding: 30px;
+        }
+
+        .farmer-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .farmer-location {
+            color: #c49a6c;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .farmer-description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .stats-section {
+            padding: 80px 40px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: #c49a6c;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .team-section {
+            padding: 100px 40px;
+            background: #f9f9f9;
+        }
+
+        .team-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-content h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4c5b5 0%, #c49a6c 100%);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .team-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .team-role {
+            color: #c49a6c;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        Free Shipping on All Subscriptions | Use Code: FRESH20 for 20% Off First Order
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://cf.aibomart.com/paylin/paylin-logo.PNG" alt="Paylincoffee Logo">
+                <span class="logo-text">coffee</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="cart-icon">
+                <span>🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Our Story</h1>
+        <p>From farm to cup, we're dedicated to bringing you the world's finest coffee while supporting the farmers who make it possible</p>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-content">
+            <div class="story-image">
+                <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Our Story" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="story-text">
+                <h2>Born from a Passion for Coffee</h2>
+                <p>Paylincoffee began in 2026 with a simple mission: to source, roast, and deliver the world's finest coffee directly to coffee lovers everywhere. What started as a small roastery has grown into a community of passionate coffee enthusiasts.</p>
+                <p>We believe that great coffee starts at the farm. That's why we've built direct relationships with farmers across Latin America, Africa, and Asia. These partnerships ensure fair compensation, sustainable practices, and the highest quality beans.</p>
+                <p>Every cup of Paylincoffee tells a story – of dedication, craftsmanship, and the journey from a small farm to your morning mug. We're honored to be part of your daily ritual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Partner Farms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Countries Sourced</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Ethically Traded</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <h2 class="section-title">Our Values</h2>
+        <p class="section-subtitle">The principles that guide everything we do</p>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3 class="value-title">Direct Trade</h3>
+                <p class="value-text">We work directly with farmers, cutting out middlemen to ensure they receive fair compensation for their exceptional coffee.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <h3 class="value-title">Sustainability</h3>
+                <p class="value-text">From eco-friendly farming practices to carbon-neutral shipping, we're committed to protecting our planet for future generations.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔥</div>
+                <h3 class="value-title">Quality First</h3>
+                <p class="value-text">We never compromise on quality. Every batch is carefully roasted to bring out the unique characteristics of each coffee.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3 class="value-title">Community</h3>
+                <p class="value-text">Coffee brings people together. We're building a community of coffee lovers who share our passion for exceptional brews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farmers Section -->
+    <section class="farmers-section">
+        <div class="farmers-content">
+            <div class="farmers-text">
+                <h2>Meet Our Farmers</h2>
+                <p>The talented individuals behind your favorite cup of coffee. We're proud to partner with these dedicated farmers who share our commitment to quality and sustainability.</p>
+            </div>
+            <div class="farmers-grid">
+                <div class="farmer-card">
+                    <div class="farmer-image">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Alfonso & Karim Tejada" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="farmer-info">
+                        <h3 class="farmer-name">Alfonso & Karim Tejada</h3>
+                        <p class="farmer-location">📍 Timbuyacu, Peru</p>
+                        <p class="farmer-description">Husband and wife team managing Timbuyacu farm, specializing in rare Maragogype variety coffee with exceptional flavor profiles.</p>
+                    </div>
+                </div>
+                <div class="farmer-card">
+                    <div class="farmer-image">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Maria Santos" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="farmer-info">
+                        <h3 class="farmer-name">Maria Santos</h3>
+                        <p class="farmer-location">📍 Huila, Colombia</p>
+                        <p class="farmer-description">Third-generation coffee farmer dedicated to sustainable practices and producing some of Colombia's finest beans.</p>
+                    </div>
+                </div>
+                <div class="farmer-card">
+                    <div class="farmer-image">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Bekele Family" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="farmer-info">
+                        <h3 class="farmer-name">Bekele Family</h3>
+                        <p class="farmer-location">📍 Yirgacheffe, Ethiopia</p>
+                        <p class="farmer-description">Guardians of heirloom coffee varieties in the birthplace of coffee, preserving centuries-old traditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-content">
+            <h2>Our Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="John Paylin" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3 class="team-name">John Paylin</h3>
+                    <p class="team-role">Founder & CEO</p>
+                    <p class="team-bio">Coffee enthusiast with 15+ years in the industry. Founded Paylincoffee to connect coffee lovers with exceptional beans.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Sarah Chen" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3 class="team-name">Sarah Chen</h3>
+                    <p class="team-role">Head Roaster</p>
+                    <p class="team-bio">Master roaster with expertise in developing unique flavor profiles. Ensures every batch meets our exacting standards.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Michael Torres" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3 class="team-name">Michael Torres</h3>
+                    <p class="team-role">Director of Sourcing</p>
+                    <p class="team-bio">Travels the world building relationships with farmers. Ensures ethical sourcing and quality at origin.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://cf.aibomart.com/paylin/paylin-product.png" alt="Emma Wilson" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3 class="team-name">Emma Wilson</h3>
+                    <p class="team-role">Customer Experience</p>
+                    <p class="team-bio">Dedicated to ensuring every customer has an exceptional experience with Paylincoffee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Join Our Community</h2>
+        <p>Experience the Paylincoffee difference. Subscribe today and never run out of exceptional coffee.</p>
+        <a href="subscribe.html" class="btn btn-secondary">Start Your Subscription</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="coffee.html">All Coffee</a></li>
+                    <li><a href="subscribe.html">Subscriptions</a></li>
+                    <li><a href="subscribe.html">Bundles</a></li>
+                    <li><a href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Learn</h3>
+                <ul>
+                    <li><a href="#">Brewing Guides</a></li>
+                    <li><a href="#">Coffee 101</a></li>
+                    <li><a href="about.html">Our Farmers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Cafés</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📌</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paylincoffee. All rights reserved. | <span class="footer-domain">paylin.top</span></p>
+        </div>
+    </footer>
+</body>
+</html>
